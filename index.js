@@ -4,7 +4,9 @@
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
 
-
+let principle = 200000;
+let interest_rate = 0.05;
+let years = 30;
 
 
 
@@ -16,7 +18,8 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 Create another variable called `periods` and give it the value of years*12.
 */
 
-
+let monthlyInterestRate = interest_rate / 12;
+let periods = years * 12;
 
 
 // 🏡 Task 2: Harder Math
@@ -28,7 +31,10 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 When your math is correct, monthlyRate will equal 1073.64
 */
+let numerator = monthlyInterestRate * Math.pow(1 + monthlyInterestRate), periods);
+let denominator = Math.pow(1 +monthlyInterestRate), periods) -1;
 
+let monthlyRate = principle * (numerator/denominator);
 
 
 
@@ -38,9 +44,22 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
-
-
-
+function mortgageCalculator(principle, interest, years, creditScore){
+    let adjustedInterest = interest;
+  
+  
+    let monthlyInterestRate = adjustedInterest / 12;
+    let periods = years * 12;
+    let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
+    let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
+  
+    let monthlyRate = principle * (numerator/denominator);
+  
+    return `brandon, your monthly rate is ${monthlyRate}`;
+  }
+  
+  console.log(mortgageCalculator(200000, 0.05, 30, 800));
+  
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -49,7 +68,7 @@ For example,
 mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
 */
 
-
+// task 3 contains 4// 
 
 
 
@@ -59,6 +78,11 @@ mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
 
+if(creditScore > 740){
+    adjustedInterest = adjustedInterest - 0.005;
+  } else if (creditScore < 660){
+    adjustedInterest = adjustedInterest + 0.005;
+  }
 
 
 
@@ -78,7 +102,29 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+function mortgageCalculator(principle, interest, years, creditScore){
+    let adjustedInterest = interest;
 
+let monthlyInterestRate = adjustedInterest / 12;
+    let periods = years * 12;
+    let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods);
+    let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1;
+  
+    let monthlyRate = principle * (numerator/denominator);
+  
+    return `Brandon, your monthly rate is ${monthlyRate}`;
+  }
+  
+  console.log(mortgageCalculator(200000, 0.02, 30, 800));
+  console.log(mortgageCalculator(200000,0.025, 30,800));
+  console.log(mortgageCalculator(200000,0.03, 30,800));
+  console.log(mortgageCalculator(200000,0.035, 30,800));
+  console.log(mortgageCalculator(200000,0.04, 30,800));
+  console.log(mortgageCalculator(200000,0.045, 30,800));
+  console.log(mortgageCalculator(200000,0.05, 30,800));
+  console.log(mortgageCalculator(200000,0.055, 30,800));
+  console.log(mortgageCalculator(200000,0.06, 30,800));
+  
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
